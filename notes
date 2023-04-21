@@ -1,0 +1,11 @@
+if using react navigation:
+
+
+First, you need to install them in your project:
+npm install @react-navigation/native @react-navigation/native-stack
+
+If you have an Expo managed project, install the dependencies with expo:
+npx expo install react-native-screens react-native-safe-area-context
+
+installing native stack navigator library:
+npm install @react-navigation/native-stack
