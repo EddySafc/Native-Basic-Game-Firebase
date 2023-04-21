@@ -1,26 +1,31 @@
 import axios from "axios";
 
 export const getUsers = () => {
-  return axios.get(`http://192.168.1.25:9090/api/users`).then((result) => {
-    return result.data["result"];
-  });
+  return axios
+    .get(`https://calm-gold-angelfish-wig.cyclic.app/api/users`)
+    .then((result) => {
+      return result.data["result"];
+    });
 };
 
 export const postUser = (item) => {
-  return axios.post(`http://192.168.1.25:9090/api/users`, {
+  return axios.post(`https://calm-gold-angelfish-wig.cyclic.app/api/users`, {
     body: item,
   });
 };
 
 export const patchUserScore = (id, change_score) => {
-  return axios.patch(`http://192.168.1.25:9090/api/users/${id}`, {
-    inc_score: change_score,
-  });
+  return axios.patch(
+    `https://calm-gold-angelfish-wig.cyclic.app/api/users/${id}`,
+    {
+      inc_score: change_score,
+    }
+  );
 };
 
 export const getUserById = (Id) => {
   return axios
-    .get(`http://192.168.1.25:9090/api/users/${Id}`)
+    .get(`https://calm-gold-angelfish-wig.cyclic.app/api/users/${Id}`)
     .then((result) => {
       return result.data;
     });
@@ -47,4 +52,16 @@ export const postDailyToDo = (item, id) => {
     item_id: id,
   });
 };
+
+--------------------------------------------------------------------------------
+
+export const getUserById = (Id) => {
+  return axios
+    .get(`http://192.168.1.25:9090/api/users/${Id}`)
+    .then((result) => {
+      return result.data;
+    });
+};
+
+
 */
