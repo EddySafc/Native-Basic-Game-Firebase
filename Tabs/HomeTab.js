@@ -45,31 +45,48 @@ function HomeTab() {
 
   if (allUsers === undefined || allUsers.length === 0 || loggedInUser === "") {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.container}>
         <Text>Not Logged In.</Text>
       </View>
     );
   } else
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Welcome</Text>
-        <Text></Text>
-        <Text>{loggedInUser}</Text>
-        <Text></Text>
-        <Text>Your Score is: {user !== undefined ? userScore : null}</Text>
-        <Text></Text>
-        <Button
-          title="Add 1 to Score"
-          color="green"
-          onPress={() => {
-            if (user !== undefined) {
-              patchUserScore(user["user_id"], 1);
-              setUserScore((currentUserScore) => currentUserScore + 1);
-            }
-          }}
-        ></Button>
+      <View style={styles.container}>
+        <Text style={styles.text}>Welcome:</Text>
+        <Text style={styles.text}>{loggedInUser}</Text>
+        <Text style={styles.text}>
+          Your Score is: {user !== undefined ? userScore : null}
+        </Text>
+        <View style={styles.button}>
+          <Button
+            title="+1 to Score"
+            color="green"
+            onPress={() => {
+              if (user !== undefined) {
+                patchUserScore(user["user_id"], 1);
+                setUserScore((currentUserScore) => currentUserScore + 1);
+              }
+            }}
+          ></Button>
+        </View>
       </View>
     );
 }
 
 export default HomeTab;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "lightblue",
+  },
+  text: {
+    margin: 15,
+    fontSize: 15,
+  },
+  button: {
+    margin: 50,
+  },
+});

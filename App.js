@@ -27,7 +27,12 @@ export default function App() {
       <logInContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <userScoreContext.Provider value={{ userScore, setUserScore }}>
           <allUsersContext.Provider value={{ allUsers, setAllUsers }}>
-            <Tab.Navigator>
+            <Tab.Navigator
+              screenOptions={{
+                tabBarActiveTintColor: "green",
+                tabBarActiveBackgroundColor: "#daf5e1",
+              }}
+            >
               <Tab.Screen
                 options={{
                   tabBarIcon: (tabInfo) => {

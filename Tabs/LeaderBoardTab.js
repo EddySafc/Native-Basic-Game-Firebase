@@ -21,28 +21,24 @@ function LeaderBoardTab() {
 
   if (allUsersLeaderBoard === undefined) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Loading...</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Loading...</Text>
       </View>
     );
   } else if (allUsersLeaderBoard[0] === undefined) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>No Users.</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Loading...</Text>
       </View>
     );
   } else
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text></Text>
-        <Text>Leader Board:</Text>
-        <Text></Text>
-        <ScrollView>
+      <View style={styles.container}>
+        <ScrollView style={styles.leader_board_container}>
           {allUsersLeaderBoard.map((user) => (
-            <View key={user.user_id}>
-              <Text>
-                User: {user.user_name} Score:{user.score}
-              </Text>
+            <View key={user.user_id} style={styles.leader_board_user}>
+              <Text style={styles.text}>User: {user.user_name}</Text>
+              <Text style={styles.text}>Score:{user.score}</Text>
             </View>
           ))}
         </ScrollView>
@@ -51,3 +47,26 @@ function LeaderBoardTab() {
 }
 
 export default LeaderBoardTab;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "lightblue",
+  },
+  leader_board_container: {
+    margin: 30,
+  },
+  leader_board_user: {
+    backgroundColor: "white",
+    margin: 10,
+    padding: 12,
+    borderRadius: 12,
+    borderColor: "#0782F9",
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: { color: "#0782F9", fontWeight: "700", fontSize: 16 },
+});
