@@ -37,8 +37,10 @@ function LeaderBoardTab() {
         <ScrollView style={styles.leader_board_container}>
           {allUsersLeaderBoard.map((user) => (
             <View key={user.user_id} style={styles.leader_board_user}>
-              <Text style={styles.text}>User: {user.user_name}</Text>
-              <Text style={styles.text}>Score:{user.score}</Text>
+              <Text style={styles.text}>
+                {user.user_name}
+                {"      |      "}Score:{user.score}
+              </Text>
             </View>
           ))}
         </ScrollView>
@@ -61,12 +63,11 @@ const styles = StyleSheet.create({
   leader_board_user: {
     backgroundColor: "white",
     margin: 10,
-    padding: 12,
-    borderRadius: 12,
-    borderColor: "#0782F9",
-    borderWidth: 1,
+    padding: 6,
+    borderRadius: 5,
     justifyContent: "center",
     alignItems: "center",
+    width: 350,
   },
-  text: { color: "#0782F9", fontWeight: "700", fontSize: 16 },
+  text: { color: "black", fontWeight: "500", fontSize: 15 },
 });
